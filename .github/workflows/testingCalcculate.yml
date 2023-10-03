@@ -3,6 +3,7 @@ on:
   push:
   pull_request:
   schedule:
+
   - cron: '0 6 * * *'
 jobs:
   linux:
@@ -15,8 +16,13 @@ jobs:
         with:
           java-version: 11
           distribution: temurin
-      - name: 'JUnit 5 SNAPSHOT build: Gradle'
-        run: cd ${GITHUB_WORKSPACE}/junit5-jupiter-starter-gradle && ./gradlew test --console plain --build-file build-SNAPSHOT.gradle
-      - name: 'JUnit 5 SNAPSHOT build: Maven'
-        run: cd ${GITHUB_WORKSPACE}/junit5-jupiter-starter-maven && ./mvnw test --batch-mode --file pom-SNAPSHOT.xml
+      - name: Build with Maven
+        run: mvn package
+      - name: Run CalculatorTest.java
+        run: mvnw test --batch-mode --file pom-SNAPSHOT.xml
+    #  - name: 'JUnit 5 SNAPSHOT build: Gradle'
+    #    run: cd ${GITHUB_WORKSPACE}/junit5-jupiter-starter-gradle && ./gradlew test --console plain --build-file build-SNAPSHOT.gradle
+    #  - name: 'JUnit 5 SNAPSHOT build: Maven'
+    #    run: cd ${GITHUB_WORKSPACE}/junit5-jupiter-starter-maven && ./mvnw test --batch-mode --file pom-SNAPSHOT.xml
+      
         

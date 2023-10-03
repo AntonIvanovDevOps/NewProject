@@ -6,18 +6,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
-
-//import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class CalculatorTest {
-    //private static Calculator calculator;
-
-    // @BeforeAll
-    // public static void init() {
-    //     calculator = new Calculator();
-    // }
 
     @ParameterizedTest
     @CsvSource({"5, 2, 7", "5, 0, 5", "-2, 6, 4", "5, -2, 3", "-5, -2, -7", "5.5, 2, 7.5"})
@@ -39,20 +31,11 @@ public class CalculatorTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"6, 2, a", "0, 2, 0", "11, 2, 5.5", "-10, -2, 5", "9, -3, -3"})
+    @CsvSource({"6, 2, 3", "0, 2, 0", "11, 2, 5.5", "-10, -2, 5", "9, -3, -3"})
     public void testDivide(double number1, double number2, double expectedResult) {
         assertEquals(expectedResult, Calculator.divide(number1, number2));
     }
 
-//    @ParameterizedTest
-//    @CsvSource({"2, 0"})
-//    public void testDivideByZero(double number1, double number2) {
-//        assertThatExceptionOfType(ArithmeticException.class)
-//                .isThrownBy(
-//                        () -> calculator.divide(number1, number2)
-//                )
-//                .withMessage("can't divide by zero");
-//    }
 
     @ParameterizedTest
     @ValueSource(strings = {"0", "5", "6.2", "-5.3"})

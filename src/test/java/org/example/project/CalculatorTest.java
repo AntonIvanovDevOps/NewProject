@@ -14,10 +14,10 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CalculatorTest {
     //private static Calculator calculator;
 
-    @BeforeAll
-    public static void init() {
-        calculator = new Calculator();
-    }
+    // @BeforeAll
+    // public static void init() {
+    //     calculator = new Calculator();
+    // }
 
     @ParameterizedTest
     @CsvSource({"5, 2, 7", "5, 0, 5", "-2, 6, 4", "5, -2, 3", "-5, -2, -7", "5.5, 2, 7.5"})

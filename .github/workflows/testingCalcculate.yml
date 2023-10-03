@@ -1,10 +1,7 @@
-name: Build starters using JUnit SNAPSHOT
+name: Tesing Calculator  using JUnit
 on:
   push:
-  pull_request:
-  schedule:
-
-  - cron: '0 6 * * *'
+    branches: [main]
 jobs:
   linux:
     name: Linux
@@ -20,9 +17,5 @@ jobs:
         run: mvn package
       - name: Run CalculatorTest.java
         run: mvn test --batch-mode --file pom-SNAPSHOT.xml
-    #  - name: 'JUnit 5 SNAPSHOT build: Gradle'
-    #    run: cd ${GITHUB_WORKSPACE}/junit5-jupiter-starter-gradle && ./gradlew test --console plain --build-file build-SNAPSHOT.gradle
-    #  - name: 'JUnit 5 SNAPSHOT build: Maven'
-    #    run: cd ${GITHUB_WORKSPACE}/junit5-jupiter-starter-maven && ./mvnw test --batch-mode --file pom-SNAPSHOT.xml
       
         

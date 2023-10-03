@@ -39,7 +39,7 @@ public class CalculatorTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"6, 2, 3", "0, 2, 0", "11, 2, 5.5", "-10, -2, 5", "9, -3, -3"})
+    @CsvSource({"6, 2, a", "0, 2, 0", "11, 2, 5.5", "-10, -2, 5", "9, -3, -3"})
     public void testDivide(double number1, double number2, double expectedResult) {
         assertEquals(expectedResult, Calculator.divide(number1, number2));
     }
